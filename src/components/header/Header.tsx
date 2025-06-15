@@ -2,8 +2,13 @@ import { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import i18n from '../../i18n';
+
 import './Header.scss'
 import Watch from "../watch/Watch";
+
+import englishIcon from '../../assets/icons/english.svg'
+import russianIcon from '../../assets/icons/russian.svg'
 
 interface HeaderState {
 	menuActive: boolean;
@@ -55,6 +60,10 @@ class Header extends Component<HeaderState & HeaderDispatch> {
 								<li className='list__item'>
 									<Watch />
 								</li>
+								<div className="language-switcher">
+									<span onClick={() => i18n.changeLanguage('en')}><img src={englishIcon} alt="englishIcon" width={25} height={25} /></span>
+									<span onClick={() => i18n.changeLanguage('ru')}><img src={russianIcon} alt="englishIcon" width={25} height={25} /></span>
+								</div>
 							</ul>
 						</nav>
 						<div className={`header__burger ${menuActive ? "active" : ""}`} onClick={toggleMenu}>
