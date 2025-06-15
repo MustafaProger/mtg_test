@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import './Header.scss'
+import Watch from "../watch/Watch";
 
 interface HeaderState {
 	menuActive: boolean;
@@ -50,6 +51,9 @@ class Header extends Component<HeaderState & HeaderDispatch> {
 										className='list__hyperlink'>
 										Services
 									</Link>
+								</li>
+								<li className='list__item'>
+									<Watch />
 								</li>
 							</ul>
 						</nav>
