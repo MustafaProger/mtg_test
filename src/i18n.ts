@@ -5,11 +5,17 @@ const resources = {
 	en: {
 		translation: {
 			welcome: "Welcome to React",
+			homePage: 'Home',
+			aboutPage: 'About',
+			servicesPage: 'Services'
 		},
 	},
 	ru: {
 		translation: {
 			welcome: "Добро пожаловать в React",
+			homePage: 'Главная',
+			aboutPage: 'О нас',
+			servicesPage: 'Услуги'
 		},
 	},
 };

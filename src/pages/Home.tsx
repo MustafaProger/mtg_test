@@ -8,7 +8,9 @@ class Home extends Component<WithTranslation> {
 
 		return (
 			<div className="home">
-				<div className="container"><h1>{t('welcome')}</h1></div>
+				<div className="container">
+					<h1>{t('welcome')}</h1>
+				</div>
 			</div>
 		);
 	}

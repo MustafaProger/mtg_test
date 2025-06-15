@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import i18n from '../../i18n';
+import { WithTranslation, withTranslation } from "react-i18next";
 
 import './Header.scss'
 import Watch from "../watch/Watch";
@@ -18,10 +19,24 @@ interface HeaderDispatch {
 	toggleMenu: () => void
 }
 
-class Header extends Component<HeaderState & HeaderDispatch> {
+class Header extends Component<HeaderState & HeaderDispatch & WithTranslation> {
+
+	componentDidUpdate(prevProps: HeaderState) {
+		if (prevProps.menuActive !== this.props.menuActive) {
+			if (this.props.menuActive) {
+				document.body.classList.add('no-scroll');
+				document.querySelector('.menu-bg')!.classList.add('active');
+
+			} else {
+				document.body.classList.remove('no-scroll');
+				document.querySelector('.menu-bg')!.classList.remove('active');
+			}
+		}
+	}
+
 	render() {
 
-		const { menuActive, toggleMenu } = this.props
+		const { menuActive, toggleMenu, t } = this.props
 
 		return (
 			<header className={`header ${menuActive ? "active" : ""}`}>
@@ -40,21 +55,22 @@ class Header extends Component<HeaderState & HeaderDispatch> {
 									<Link
 										to=''
 										className='list__hyperlink'>
-										Home
+										{t('homePage')}
 									</Link>
 								</li>
 								<li className='list__item'>
 									<Link
 										to='about'
 										className='list__hyperlink'>
-										About
+										{t('aboutPage')}
+
 									</Link>
 								</li>
 								<li className='list__item'>
 									<Link
 										to='services'
 										className='list__hyperlink'>
-										Services
+										{t('servicesPage')}
 									</Link>
 								</li>
 								<li className='list__item'>
@@ -84,4 +100,4 @@ const mapDispatchProps = (dispatch: any): HeaderDispatch => ({
 	toggleMenu: () => dispatch({ type: "MENU_ACTIVE" })
 })
 
-export default connect(mapStateToProps, mapDispatchProps,)(Header);
+export default withTranslation()(connect(mapStateToProps, mapDispatchProps)(Header));
