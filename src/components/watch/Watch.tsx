@@ -10,6 +10,12 @@ class Watch extends Component {
         }, 1000);
     }
 
+    componentWillUnmount() {
+        if (this.intervalID) {
+            clearInterval(this.intervalID);
+        }
+    }
+
     render() {
         return (
             <div className="watch">

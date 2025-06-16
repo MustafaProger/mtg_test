@@ -1,18 +1,12 @@
 import { Component } from "react";
-import { WithTranslation, withTranslation } from "react-i18next";
 
 import ListUsers from "../components/listUsers/ListUsers";
 
-class Home extends Component<WithTranslation> {
-
+class Home extends Component {
 	render() {
-
-		const { t } = this.props;
-
 		return (
 			<div className="home">
 				<div className="container">
-					<h1>{t('welcome')}</h1>
 					<ListUsers />
 				</div>
 			</div>
@@ -20,4 +14,4 @@ class Home extends Component<WithTranslation> {
 	}
 }
 
-export default withTranslation()(Home);
+export default Home;

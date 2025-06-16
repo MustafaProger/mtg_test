@@ -1,1 +1,64 @@
+.list-users {
+	margin: 90px 0;
+}
 
+.list-users__items {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+
+	.list-users__item {
+		border: 1.5px solid black;
+		border-radius: 20px;
+		padding: 20px;
+		transition: all 0.3s;
+		cursor: pointer;
+		&:hover {
+			transform: scale(1.02);
+
+			box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+		}
+		h3 {
+			margin-top: 0;
+		}
+	}
+}
+
+.btns {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	gap: 12px;
+
+	&__item {
+		color: #fff;
+		border: none;
+		padding: 10px 15px;
+		cursor: pointer;
+		border-radius: 100%;
+		background-color: #ccc;
+		font-size: 16px;
+		transition: all 0.3s;
+		position: relative;
+
+		&.active {
+			background-color: #000;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: -5px;
+			left: -5px;
+			width: 115%;
+			height: 115%;
+			border-radius: 100%;
+			border: 2px solid transparent;
+			transition: all 0.3s;
+		}
+
+		&:hover::before {
+			border: 2px solid #cccccc;
+		}
+	}
+}
