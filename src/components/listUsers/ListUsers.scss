@@ -1,5 +1,5 @@
 .list-users {
-	margin: 90px 0;
+	margin: 100px 0 30px 0;
 }
 
 .list-users__items {
@@ -27,7 +27,7 @@
 .btns {
 	display: flex;
 	justify-content: center;
-	margin-top: 20px;
+	margin-top: 30px;
 	gap: 12px;
 
 	&__item {
@@ -60,5 +60,17 @@
 		&:hover::before {
 			border: 2px solid #cccccc;
 		}
+	}
+}
+
+@media (max-width: 1024px) {
+	.list-users__items {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	.list-users__items {
+		grid-template-columns: 1fr;
 	}
 }

@@ -23,6 +23,12 @@ interface UsersProps {
 }
 
 class ListUsers extends Component<UsersProps & WithTranslation> {
+    async componentDidUpdate(prevProps: UsersProps & WithTranslation) {
+        if (prevProps.currentPage !== this.props.currentPage) {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'auto' });
+        }
+    }
+
     async componentDidMount() {
         try {
             const request = await fetch("/data/data.json");
@@ -76,12 +82,10 @@ class ListUsers extends Component<UsersProps & WithTranslation> {
         const totalPages = Math.ceil(Object.keys(userList).length / 10);
 
         return (
-
             <div className="list-users">
                 <div className="list-users__items">
                     {this.buildHtmlUsers(userList)}
                 </div>
-
                 {this.buildHtmlButtons(totalPages)}
             </div>
         );
