@@ -4,7 +4,6 @@ import './index.css';
 
 import './i18n';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 import { Provider } from 'react-redux'
 import store from './store/store'
@@ -20,5 +19,3 @@ root.render(
   </Provider>,
 
 );
-
-reportWebVitals();
